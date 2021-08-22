@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>All Wrestling</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <link rel="stylesheet" href="/bootstrap-4.0.0-dist/css/bootstrap.min.css" />
+  </head>
+  <body>
+    <section class="wrapper">
+      <div class="container-fostrap">
+          <div>
+              <img src="<%= eventData.banner_link %>" alt="Banner Image not found." style="width: 1000px; height: 200px;"/>
+              <h1 class="heading">
+                  <%= eventData.event_name %>
+              </h1>
+          </div>
+          <div class="content">
+              <div class="container">
+                <% if ("DM1" in eventData.all_links && eventData.all_links.DM1.length > 0) { %>
+                  <h2>
+                    DailyMotion Links - Set 1
+                  </h2>
+                  <div>
+                  <% for(var i=0; i < eventData.all_links.DM1.length; i++) { %>
+                      <a href="<%= eventData.all_links.DM1[i] %>" class="btn btn-primary">
+                        Part <%= i+1 %>
+                      </a>
+                  <% } %>
+                  </div>
+                <% } %>
+                <br>
+                <% if ("DM2" in eventData.all_links && eventData.all_links.DM2.length > 0) { %>
+                  <h2>
+                    DailyMotion Links - Set 2
+                  </h2>
+                  <div>
+                  <% for(var i=0; i < eventData.all_links.DM2.length; i++) { %>
+                      <a href="<%= eventData.all_links.DM2[i] %>" class="btn btn-primary">
+                        Part <%= i+1 %>
+                      </a>
+                  <% } %>
+                  </div>
+                <% } %>
+                <br>
+                <% if ("DM3" in eventData.all_links && eventData.all_links.DM3.length > 0) { %>
+                  <h2>
+                    DailyMotion Links - Set 3
+                  </h2>
+                  <div>
+                  <% for(var i=0; i < eventData.all_links.DM3.length; i++) { %>
+                      <a href="<%= eventData.all_links.DM3[i] %>" class="btn btn-primary">
+                        Part <%= i+1 %>
+                      </a>
+                  <% } %>
+                  </div>
+                <% } %>
+              </div>
+          </div>
+      </div>
+  </section>
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="/bootstrap-4.0.0-dist/js/bootstrap.min.js"></script>
+  </body>
+</html>
