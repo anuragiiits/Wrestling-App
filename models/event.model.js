@@ -11,10 +11,11 @@ module.exports = mongoose => {
 
     var schema = mongoose.Schema(
         {
-          title: String,
+          event_name: String,
           description: String,
-          event_date: Number,
+          event_date: String,
           event_id: String,
+          banner_link: String,
           all_links: linkSchema
         },
         { timestamps: true }

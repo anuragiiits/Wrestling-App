@@ -5,7 +5,6 @@ exports.homePage = (req, res) => {
     Event.find()
     .then(data => {
         // res.send(data)
-        console.log(data)
         res.render('home', { data: data });
     }).catch(err => {
         res.status(500).send({
@@ -19,7 +18,6 @@ exports.eventPage = (req, res) => {
     Event.findOne({event_id: req.params.eventId})
     .then(eventData => {
         // res.send(data)
-        console.log(eventData)
         res.render('event', { eventData: eventData });
     }).catch(err => {
         res.status(500).send({

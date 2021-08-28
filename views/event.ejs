@@ -10,7 +10,9 @@
     <section class="wrapper">
       <div class="container-fostrap">
           <div>
-              <img src="<%= eventData.banner_link %>" alt="Banner Image not found." style="width: 1000px; height: 200px;"/>
+              <img src="<%= eventData.banner_link %>" alt="Banner Image not found." style="width: 50%; height: 200px;"/>
+              <br>
+              <br>
               <h1 class="heading">
                   <%= eventData.event_name %>
               </h1>
@@ -23,7 +25,7 @@
                   </h2>
                   <div>
                   <% for(var i=0; i < eventData.all_links.DM1.length; i++) { %>
-                      <a href="<%= eventData.all_links.DM1[i] %>" class="btn btn-primary">
+                      <a href="<%= eventData.all_links.DM1[i] %>" class="stream-link btn btn-primary">
                         Part <%= i+1 %>
                       </a>
                   <% } %>
@@ -36,7 +38,7 @@
                   </h2>
                   <div>
                   <% for(var i=0; i < eventData.all_links.DM2.length; i++) { %>
-                      <a href="<%= eventData.all_links.DM2[i] %>" class="btn btn-primary">
+                      <a href="<%= eventData.all_links.DM2[i] %>" class="stream-link btn btn-primary">
                         Part <%= i+1 %>
                       </a>
                   <% } %>
@@ -49,7 +51,7 @@
                   </h2>
                   <div>
                   <% for(var i=0; i < eventData.all_links.DM3.length; i++) { %>
-                      <a href="<%= eventData.all_links.DM3[i] %>" class="btn btn-primary">
+                      <a href="<%= eventData.all_links.DM3[i] %>" class="stream-link btn btn-primary">
                         Part <%= i+1 %>
                       </a>
                   <% } %>
@@ -59,10 +61,44 @@
           </div>
       </div>
   </section>
+  <hr>
+  <footer>
+    <div>For any issues in page, please reach out to anurag273003@gmail.com</div>
+    <p><a href="mailto:anurag273003@gmail.com">anurag273003@gmail.com</a></p>
+  </footer>
 
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="/bootstrap-4.0.0-dist/js/bootstrap.min.js"></script>
+    <script>
+      function getStreamParams(link) {
+        var params = {
+          "vid_link": link
+        }
+        var esc = encodeURIComponent;
+        var query = Object.keys(params)
+            .map(k => esc(k) + '=' + esc(params[k]))
+            .join('&');
+        return query;
+      }
+
+      var link_tags = document.querySelectorAll(".stream-link")
+      for (var i = 0; i < link_tags.length; i++) {
+        link_tags[i].addEventListener('click', function (event) {
+          // Do something before following the link 
+          // Get url from the target element (<a>) href attribute
+          var video_link = event.target.href;
+          var link = "/watch/?" + getStreamParams(video_link);
+
+          // Open the url in the current window. Set to "_blank" instead of "_self" to open in a new window.
+          window.open(link, '_blank');
+
+          // Prevent default action (e.g. following the link)
+          event.preventDefault();
+        });
+      }
+      
+    </script>
   </body>
 </html>

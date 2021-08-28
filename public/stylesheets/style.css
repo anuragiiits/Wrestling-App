@@ -18,6 +18,10 @@ body {
   font-family: 'Roboto', sans-serif;
   font-weight: 400;
 }
+
+footer {
+  text-align: center;
+}
  
 .wrapper {
   display: table;
@@ -105,4 +109,13 @@ h1.heading {
   padding:10px;
   font-weight:600;
   text-transform: uppercase
+}
+.iframe-video {
+  width:60%;
+  height:60%;
+  position:absolute;
+  left:0px;
+  top:10%;
+  overflow:hidden;
+  margin-left: 20%;
 }
