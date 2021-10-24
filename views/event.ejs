@@ -1,8 +1,15 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>All Wrestling</title>
+    <title><%= eventData.event_name %></title>
+    <meta name="description" content="<%= eventData.description %>">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta property="og:locale" content="en_US" />
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content="<%= eventData.event_name %>" />
+    <meta property="og:description" content="<%= eventData.description %>" />
+    <meta property="og:url" content="https://wrestlingvideos.live/events/<%= eventData.event_id %>" />
+    <meta property="og:site_name" content="Watch Wrestling Online" />
     <link rel='stylesheet' href='/stylesheets/style.css' />
     <link rel="stylesheet" href="/bootstrap-4.0.0-dist/css/bootstrap.min.css" />
   </head>
@@ -21,7 +28,7 @@
               <div class="container">
                 <% if ("DM1" in eventData.all_links && eventData.all_links.DM1.length > 0) { %>
                   <h2>
-                    DailyMotion Links - Set 1
+                    DailyMotion Links - Set 1<sup>**</sup>
                   </h2>
                   <div>
                   <% for(var i=0; i < eventData.all_links.DM1.length; i++) { %>
@@ -59,11 +66,14 @@
                 <% } %>
               </div>
           </div>
+          <div class="ad-free-suggestion">
+            <p><b><i><sup>**</sup>For a good ad-free experience, watch on Chrome browser under Incognito mode.</i></b></p>
+          </div>
       </div>
   </section>
   <hr>
   <footer>
-    <div>For any issues in page, please reach out to anurag273003@gmail.com</div>
+    <div>For any issues in page or to provide support, please reach out to below email.</div>
     <p><a href="mailto:anurag273003@gmail.com">anurag273003@gmail.com</a></p>
   </footer>
 
